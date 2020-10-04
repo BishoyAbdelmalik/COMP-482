@@ -10,12 +10,17 @@ public class Project1 {
         ArrayList<Integer> values = new ArrayList<>();
 
         HashMap<Integer, Integer> map = new HashMap<>();
+
         while (sc.hasNext()) {
             int num = sc.nextInt();
             if (num == 0) {
                 break;
             }
-            // map.put(num,map.get(num)+1);
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } else {
+                map.put(num, 1);
+            }
             values.add(num);
         }
         while (sc.hasNext()) {
@@ -31,6 +36,16 @@ public class Project1 {
 
             }
 
+        }
+        System.out.println();
+        System.out.println();
+        for (Integer target : targets) {
+            System.out.print(target + " ");
+            if (check(map, values, target)) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
         }
     }
 
@@ -51,15 +66,29 @@ public class Project1 {
         return false;
     }
 
-    // private static boolean check(HashMap<Integer, Integer> map,
-    // ArrayList<Integer> targets) {
+    private static boolean check(HashMap<Integer, Integer> map, ArrayList<Integer> values, int sum) {
+        for (int i = 0; i < values.size(); i++) {
+            for (int j = 0; j < values.size(); j++) {
+                if (i == j)
+                    continue;
+                int temp = sum - (values.get(i) + values.get(j));
+                int tempI = map.get(values.get(i));
+                if (map.get(values.get(i)) > 0) {
+                    map.replace(values.get(i), map.get(values.get(i)) - 1);
+                }
+                int tempJ = map.get(values.get(j));
+                if (map.get(values.get(j)) > 0) {
+                    map.replace(values.get(j), map.get(values.get(j)) - 1);
+                }
 
-    // for (Integer target : targets) {
-    // for (int i = 0; i < map.size(); i++) {
-
-    // }
-
-    // }
-    // }
+                if (map.containsKey(temp) && map.get(temp) != 0) {
+                    return true;
+                }
+                map.replace(values.get(i), tempI);
+                map.replace(values.get(j), tempJ);
+            }
+        }
+        return false;
+    }
 
 }
