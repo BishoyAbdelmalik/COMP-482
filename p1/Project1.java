@@ -72,11 +72,11 @@ public class Project1 {
                 if (i == j)
                     continue;
                 int temp = sum - (values.get(i) + values.get(j));
-                int tempI = map.get(values.get(i));
+                int tempIvalue = map.get(values.get(i));
+                int tempJvalue = map.get(values.get(j));
                 if (map.get(values.get(i)) > 0) {
                     map.replace(values.get(i), map.get(values.get(i)) - 1);
                 }
-                int tempJ = map.get(values.get(j));
                 if (map.get(values.get(j)) > 0) {
                     map.replace(values.get(j), map.get(values.get(j)) - 1);
                 }
@@ -84,8 +84,8 @@ public class Project1 {
                 if (map.containsKey(temp) && map.get(temp) != 0) {
                     return true;
                 }
-                map.replace(values.get(i), tempI);
-                map.replace(values.get(j), tempJ);
+                map.replace(values.get(i), tempIvalue);
+                map.replace(values.get(j), tempJvalue);
             }
         }
         return false;
