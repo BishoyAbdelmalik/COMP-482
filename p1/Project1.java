@@ -1,7 +1,7 @@
 /**
 * Project 1
 * reads in a list of numbers and target values and 
-* repeatedlydetermines whether any 3 items from 
+* repeatedly determines whether any 3 items from 
 * the data set sum to a target value.
 *
 * @author  Bishoy Abdelmalik
