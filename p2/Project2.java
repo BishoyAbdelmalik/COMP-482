@@ -8,14 +8,14 @@ public class Project2 {
         Scanner sc = new Scanner(new File("input2.txt"));
         ArrayList<Integer> x=new ArrayList<>();
         ArrayList<Integer> y=new ArrayList<>();
-        boolean xORy=true;
+        boolean isX=true;
         while(sc.hasNextInt()){
-            if(xORy){
+            if(isX){
                 x.add(sc.nextInt());
-                xORy=false;
+                isX=false;
             }else{
                 y.add(sc.nextInt());
-                xORy=true;
+                isX=true;
             }
         }
         System.out.println(x.toString());
