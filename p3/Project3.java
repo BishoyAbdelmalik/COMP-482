@@ -1,3 +1,11 @@
+/**
+* Project 3
+* read 2 sorted lists 
+* find the average of the 2 middle elements in O(logn)
+* find the number of inversions in the list in O(n)
+* @author  Bishoy Abdelmalik
+* @version 1.0
+*/
 import java.util.*;
 import java.io.*;
 
@@ -16,13 +24,7 @@ public class Project3 {
         for (int i = 0; i < n; ++i) {
             list2[i] = sc.nextInt();
         }
-        // System.out.println(Arrays.toString(list1));
-        // System.out.println(Arrays.toString(list2));
-        // int[] arr = merge(list1, list2);
-        // Arrays.sort(arr);
-        // System.out.println(Arrays.toString(arr));
-        // System.out.println(arr.length);
-        // System.out.println(arr[arr.length / 2]);
+        
         System.out.println(findMedianAverage(list1, list2, list1Ends, list2Ends));
         System.out.println(countInversions(list1, list2));
     }
@@ -40,6 +42,7 @@ public class Project3 {
 
             }
         }
+        Arrays.sort(newList);
         return newList;
     }
 
