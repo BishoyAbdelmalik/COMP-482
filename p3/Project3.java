@@ -11,6 +11,7 @@ import java.io.*;
 
 public class Project3 {
     public static void main(String[] args) throws FileNotFoundException {
+        //read the input file and store it in 2 lists
         Scanner sc = new Scanner(new File("input3.txt"));
         int n = sc.nextInt();
         int[] list1 = new int[n];
@@ -24,11 +25,16 @@ public class Project3 {
         for (int i = 0; i < n; ++i) {
             list2[i] = sc.nextInt();
         }
-        
+        //call the 2 methods
         System.out.println(findMedianAverage(list1, list2, list1Ends, list2Ends));
         System.out.println(countInversions(list1, list2));
     }
-
+    /**
+     * used to merge the 2 lists with 2 elements 
+     * @param list1
+     * @param list2
+     * @return merged list
+     */
     private static int[] merge(int[] list1, int[] list2) {
         int[] newList = new int[list1.length + list2.length];
         int index = 0;
@@ -45,7 +51,14 @@ public class Project3 {
         Arrays.sort(newList);
         return newList;
     }
-
+    /**
+     * find the average of middle elements
+     * @param list1 first list
+     * @param list2 second list
+     * @param list1Ends array of start and end of the section in the first list 
+     * @param list2Ends array of start and end of the section in the second list 
+     * @return the average of the middle elements
+     */
     private static double findMedianAverage(int[] list1, int[] list2, int[] list1Ends, int[] list2Ends) {
         int n1 = list1Ends[1] - list1Ends[0];
         int n2 = list2Ends[1] - list2Ends[0];
@@ -68,7 +81,12 @@ public class Project3 {
             return findMedianAverage(list1, list2, newlist1Ends, newlist2Ends);
         }
     }
-
+    /**
+     * counts inversions by pretending to merge the lists
+     * @param list1
+     * @param list2
+     * @return int the number of inversions
+     */
     private static int countInversions(int[] list1, int[] list2) {
         int firstList = 0;
         int secondList = 0;
