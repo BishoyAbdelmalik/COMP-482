@@ -25,8 +25,7 @@ public class Project3 {
         for (int i = 0; i < n; ++i) {
             list2[i] = sc.nextInt();
         }
-        System.out.println(Arrays.toString(list1));
-        System.out.println(Arrays.toString(list2));
+
         //call the 2 methods
         System.out.println(findMedianAverage(list1, list2, list1Ends, list2Ends));
         System.out.println(countInversions(list1, list2));
